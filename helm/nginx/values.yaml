@@ -1,0 +1,32 @@
+# Development environment variables  for nginx deployment
+
+# -- Target namespace: dev
+namespace: dev
+
+# -- Deployment configuration data
+deployment:
+  name: nginx-dev
+  replicas: 5
+  spec:
+    image: nginx:1.14
+
+# -- Resource claims
+containers:
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+#-- Node selection constraint
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: node.kubernetes.io/instance-type
+              operator: In
+              values:
+                - t3a.medium

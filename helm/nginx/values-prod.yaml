@@ -1,0 +1,33 @@
+# Production environment variables  for nginx deployment
+
+# -- Target namespace: prod
+namespace: prod
+
+# -- Deployment configuration data
+deployment:
+  name: nginx-prod
+  replicas: 20
+  spec:
+    image: nginx:1.14
+
+# -- Resource claims
+containers:
+  resources:
+    requests:
+      cpu: 500m
+      memory: 256Mi
+    limits:
+      cpu: 800m
+      memory: 512Mi
+
+#-- Node selection constraint
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: node.kubernetes.io/instance-type
+              operator: In
+              values:
+                - m6a.large
+  
