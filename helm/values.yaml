@@ -1,0 +1,14 @@
+# Development environment variables for services
+
+# -- Target namespace: dev
+#namespace: dev
+
+# -- Service configuration data
+service:
+  name: loadbalancer-dev  # You can change namings, but Capital letters not allowed 
+  type: LoadBalancer
+  selector:
+    app: nginx-dev
+  ports:
+    port: 80
+    targetPort: 80
