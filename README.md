@@ -1,5 +1,1 @@
-Repo tests ArgoCD features. 
-
-Checklist
-- Public repository
-- Private repository
+# 1st commit 
