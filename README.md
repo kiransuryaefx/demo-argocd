@@ -1,7 +1,6 @@
 
-# git rebase --interactive <base>
-
-# 2nd commit for git rebase --interactive
-
-
 # adds 1st commit in feature branch 
+=======
+#Commint without amend
+
+#Commit after amend
